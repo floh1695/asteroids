@@ -8,10 +8,14 @@ from constant import screenX, screenY
 
 class GameObject():
   def __init__(self, image, location, angle, speed):
+    self.alive = True
     self.image = image
     self.location = location
     self.angle = angle
     self.speed = speed
+
+  def isAlive(self):
+    return self.alive
 
   def update(self):
     self.location.update(self.speed, self.angle)

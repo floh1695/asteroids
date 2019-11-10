@@ -3,6 +3,7 @@
 import pygame
 
 from colors import color
+from gameObject import GameObject
 from player import Player
 from randomAsteroid import RandomAsteroid
 from constant import screenSize
@@ -31,6 +32,7 @@ class Game():
       self.handleEvents()
       self.handleInput()
       self.handleUpdates()
+      self.handleDeaths()
       self.handleCollisions()
       self.handleDrawing(screen)
 
@@ -67,6 +69,12 @@ class Game():
   def handleUpdates(self):
     for gameObject in self.allGameObjects():
       gameObject.update()
+
+  def handleDeaths(self):
+    alive = GameObject.isAlive
+
+    self.asteroids = list(filter(alive, self.asteroids))
+    self.lasers = list(filter(alive, self.lasers))
 
   def handleCollisions(self):
     for asteroid in self.asteroids:

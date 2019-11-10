@@ -5,6 +5,7 @@ from gameObject import GameObject
 from location import Location
 from angle import Angle
 from constant import screenX, screenY
+from laser import Laser
 
 class Player(GameObject):
   def __init__(self):
@@ -32,3 +33,6 @@ class Player(GameObject):
   def update(self):
     GameObject.update(self)
     self.speed = self.speed * 0.90
+
+  def shoot(self):
+    return Laser((screenX / 2, screenY / 2), 0)

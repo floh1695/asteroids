@@ -17,8 +17,7 @@ class Asteroid(GameObject):
   def getSurface(self):
     surface = GameObject.getSurface(self)
 
-    healthRatio = self.health / self.level
-    edge = 16 * int(self.level - healthRatio)
+    edge = 16 * self.level
     newSize = (edge, edge)
     scaledSurface = pygame.transform.scale(surface, newSize)
 

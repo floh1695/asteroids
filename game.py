@@ -60,6 +60,10 @@ class Game():
     if pressed[pygame.K_LEFT]:
       self.player.turnLeft()
 
+    if pressed[pygame.K_SPACE]:
+      laser = self.player.shoot()
+      self.lasers.append(laser)
+
   def handleUpdates(self):
     for gameObject in self.allGameObjects():
       gameObject.update()

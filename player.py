@@ -19,7 +19,9 @@ class Player(GameObject):
     self.health = 3
 
   def shoot(self):
-    return Laser((screenX / 2, screenY / 2), 0)
+    return Laser(
+      Location(screenX / 2, screenY / 2),
+      Angle(0))
 
   def forward(self):
     self.speed += 0.75

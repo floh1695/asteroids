@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-import pygame
-
 from gameObject import GameObject
 
 from location import Location
@@ -11,6 +9,7 @@ from constant import screenX, screenY
 class Player(GameObject):
   def __init__(self):
     GameObject.__init__(self,
+      './images/player.png',
       Location(screenX / 2, screenY / 2),
       Angle(0),
       0)
@@ -33,14 +32,3 @@ class Player(GameObject):
   def update(self):
     GameObject.update(self)
     self.speed = self.speed * 0.90
-
-  def draw(self, externalSurface):
-    surface = pygame.image.load('./images/player.png')
-    rotatedSurface = pygame.transform.rotate(
-      surface,
-      self.angle.degrees)
-
-    externalSurface.blit(
-      rotatedSurface,
-      self.location.asList())
-

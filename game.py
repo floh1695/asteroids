@@ -4,7 +4,7 @@ import pygame
 
 from colors import color
 from player import Player
-from asteroid import Asteroid
+from randomAsteroid import RandomAsteroid
 from constant import screenSize
 
 class Game():
@@ -12,7 +12,11 @@ class Game():
     self.level = 1
     self.ticks = 0
     self.player = Player()
-    self.asteroids = []
+    self.asteroids = [
+      RandomAsteroid(1),
+      RandomAsteroid(2),
+      RandomAsteroid(3),
+      RandomAsteroid(4)]
     self.lasers = []
     self.running = False
 
@@ -27,6 +31,7 @@ class Game():
       self.handleEvents()
       self.handleInput()
       self.handleUpdates()
+      self.handleCollisions()
       self.handleDrawing(screen)
 
   def allGameObjects(self):
@@ -58,6 +63,9 @@ class Game():
   def handleUpdates(self):
     for gameObject in self.allGameObjects():
       gameObject.update()
+
+  def handleCollisions(self):
+    pass
 
   def handleDrawing(self, surface):
     surface.fill(color('black'))

@@ -50,6 +50,10 @@ class Game():
       self.running = False
       return
 
+    if pressed[pygame.K_SPACE]:
+      laser = self.player.shoot()
+      self.lasers.append(laser)
+
     if pressed[pygame.K_UP]:
       self.player.forward()
     if pressed[pygame.K_DOWN]:

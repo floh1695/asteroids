@@ -65,7 +65,12 @@ class Game():
       gameObject.update()
 
   def handleCollisions(self):
-    pass
+    for asteroid in self.asteroids:
+      self.player.collisionWithAsteroid(asteroid)
+
+    for laser in self.lasers:
+      for asteroid in self.asteroids:
+        asteroid.collisionWithLaser(laser)
 
   def handleDrawing(self, surface):
     surface.fill(color('black'))

@@ -23,3 +23,6 @@ class Asteroid(GameObject):
     scaledSurface = pygame.transform.scale(surface, newSize)
 
     return scaledSurface
+
+  def collisionWithLaser(self, laser):
+    pass

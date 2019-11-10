@@ -32,3 +32,6 @@ class Player(GameObject):
   def update(self):
     GameObject.update(self)
     self.speed = self.speed * 0.90
+
+  def collisionWithAsteroid(self, asteroid):
+    pass

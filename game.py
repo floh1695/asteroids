@@ -4,6 +4,7 @@ import pygame
 
 from colors import color
 from player import Player
+from asteroid import Asteroid
 from constant import screenSize
 
 class Game():
@@ -65,4 +66,3 @@ class Game():
       gameObject.draw(surface)
 
     pygame.display.flip()
-

@@ -10,11 +10,13 @@ from constant import screenX, screenY
 
 class Player(GameObject):
   def __init__(self):
+    GameObject.__init__(self,
+      Location(screenX / 2, screenY / 2),
+      Angle(0),
+      0)
+
     self.lives = 3
     self.health = 3
-    self.location = Location(screenX // 2, screenY // 2)
-    self.speed = 0
-    self.angle = Angle(0)
 
   def forward(self):
     self.speed += 0.75
@@ -29,7 +31,7 @@ class Player(GameObject):
     self.angle.turnLeft(360 / 60)
 
   def update(self):
-    self.location.update(self.speed, self.angle)
+    GameObject.update(self)
     self.speed = self.speed * 0.90
 
   def draw(self, externalSurface):
